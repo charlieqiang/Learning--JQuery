@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" value="input">
+    <input type="button" id="getinfo" value="getinfo">
+    <span id="bg">hello</span>
+    <span class="mini">hello</span>
+    <span class="mini">hello</span>
+    <p>hello</p>
+    <p>hi</p>
+    <p>hello</p>
+    
+</body>
+
+<script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+<script>
+    // $(document).ready(function(){
+    //     window.alert('hello');
+    // });
+    function getinfo(){
+        var $obj  = $('#input');
+        alert($obj.val());
+    }
+    //change id
+    $('p').click(
+        // id,class,*,
+        // function(){
+        //     $('#bg').css("background","#0000FF");
+        // }
+        // group
+        // function(){
+        //     $('span,#id').css("background","pink");
+        // }
+        function(){
+            window.alert($(this).html());
+        }
+        
+        
+    )
+    //change class
+    
+
+</script>
+</html>
