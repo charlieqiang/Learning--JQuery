@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div>
+        <p>
+            hello
+        </p>
+    
+        <p>
+            ho
+        </p>
+    </div>
+    <div>
+        <form action="">
+            
+            <input type="checkbox" name="ck" value="checkbox1">checkbox1     
+            <input type="checkbox" name="ck" value="checkbox2">checkbox2     
+            <input type="checkbox" name="ck" value="checkbox3">checkbox3  
+            <br>
+            <input type="button" name="" id="" value="all"/>
+            <input type="button" name="" id="" value="none"/>
+            <input type="button" name="" id="" value="opp"/>
+            <input type="submit" name="" id="" value="submit"/>
+
+        </form>
+    </div>
+    <div>
+        <center style="background-color: pink;">
+            <h1>add user</h1>
+            <br>
+            name: <input type="text" name="" id="name">
+            email: <input type="text" name="" id="email">
+            tel: <input type="text" name="" id="tel">
+            <br>
+
+            <input type="button" name="" id="addUser" value="submit">
+            <br><br>
+            <table id="usertable" border="1px white">
+                <tbody>
+                    <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>tel</th>
+                        <th>&nbsp</th>
+
+                    </tr>
+                    <tr>
+                        <td>Tom</td>
+                        <td>tom@tom.com</td>
+                        <td>5000</td>
+                        <td><a href="#">Delet</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </center>
+        
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#addUser').click(function(){
+            var name=$('#name').val();
+            var email=$('#email').val();
+            var tel=$('#tel').val();
+            
+            $tr=$("<tr></tr>");
+            $name_td=$("<td></td>");
+            $name_td.text(name);
+            $email_td=$("<td></td>");
+            $email_td.text(email);
+            $tel_td=$("<td></td>");
+            $tel_td.text(tel);
+           
+            $a_td=$("<td></td>");
+            $myHref=$("<a></a>");
+            $myHref.text("Delet");
+            $myHref.attr("href","#");
+            $myHref.click(function(){
+                var b=window.confirm($(this).parent().parent().children().eq(0).text());
+                if(b){
+                    $(this).parent().parent().remove();
+                    return false;
+                } else {
+                    return false;
+                }
+
+            });
+
+            $a_td.append($myHref);
+
+            $tr.append($name_td);
+            $tr.append($email_td);
+            $tr.append($tel_td);
+            $tr.append($a_td);
+
+            $('#usertable tbody').append($tr);
+        });
+    });
+</script>
+
+<script>
+
+    $("input[type='button']").click(function(){
+
+        $(":checkbox").each(function(){
+            if(this.checked == true){
+                
+                this.checked=false;
+            } else {
+                this.checked=true;
+            }
+        });
+    });
+
+</script>
+
+
+</html>
